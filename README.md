@@ -7,3 +7,7 @@ Automatically generating regular expressions from natural language description (
 pip install -r requirements.txt
 
 ## train
+source train.sh
+
+## eval
+source eval.sh
