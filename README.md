@@ -14,12 +14,12 @@ continuously as the traversal proceeds. We repeat this process until there is on
 Train/valid/test data is under **./data**
 
 ## Install from source
-'''pip install -r requirements.txt'''
+``` pip install -r requirements.txt ```
 ## Train
-'
+```
 source train.sh
-'
+```
 ## Eval
-'
+```
 source eval.sh
-'
+```
