@@ -23,3 +23,5 @@ source train.sh
 ```
 source eval.sh
 ```
+## Main Result
+![image](https://github.com/Smallqqqq/InfeRE/blob/main/result.png)
