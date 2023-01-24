@@ -10,7 +10,7 @@ First, we parse the original plain regex into trees based on predefined rules(Re
 continuously as the traversal proceeds. We repeat this process until there is only a single step node left in the tree, which means the completion of the chain of inference.
 ![image](https://github.com/Smallqqqq/InfeRE/blob/main/chain.png)
 
-## Consistency
+## Self-Consistency
 Since we formulate regex generation as a chain of inference for text matching, it is natural to suppose that there are multiple chains that lead to the same 199
 text matching. Moreover, if multiple chains reach the same matching, that means the generated chains are more convincing. In other words, multiple wrong chains are unlikely to reach the same answer. Therefore, we can sample a group of inference chains from the language model, revert them to plain regexes, and select the most consistent ones (i.e., chains of inference that lead to the same regexes) as the final results.
 ![image](https://github.com/Smallqqqq/InfeRE/blob/main/consistency.png)
@@ -26,10 +26,12 @@ pip install -r requirements.txt
 ```
 
 ## Train
+change dataset in *train.sh*, kb13 or turk
 ```
 source train.sh
 ```
 ## Eval
+change dataset in *eval.sh*, kb13 or turk
 ```
 source eval.sh
 ```
