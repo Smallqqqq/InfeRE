@@ -26,12 +26,12 @@ pip install -r requirements.txt
 ```
 
 ## Train
-change dataset in *train.sh*, kb13 or turk
+configure training dataset in *train.sh*, kb13 or turk
 ```
 source train.sh
 ```
 ## Eval
-change dataset in *eval.sh*, kb13 or turk
+configure evaluation dataset in *eval.sh*, kb13 or turk
 ```
 source eval.sh
 ```
