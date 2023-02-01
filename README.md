@@ -8,7 +8,7 @@ We convert plain regexes into chains of inference, each representing an inferred
 
 First, we parse the original plain regex into trees based on predefined rules(Read paper for details). We then traverse the tree in a post-order. Whenever we encounter an operator node, we regard the sub-regex corresponding to its sub-tree as a step in the chain of inference. For the i-th node, we represent the sub-regex as step i in the chain of inference. Then, we replace the sub-tree of the current operator with a step-i node. The size of the regex tree decreases 
 continuously as the traversal proceeds. We repeat this process until there is only a single step node left in the tree, which means the completion of the chain of inference.
-![image](./chain.png)
+<img src="https://github.com/Smallqqqq/InfeRE/blob/main/chain.png" width="750"><br/>
 
 ## Self-Consistency
 Since we formulate regex generation as a chain of inference for text matching, it is natural to suppose that there are multiple chains that lead to the same 199
@@ -36,4 +36,4 @@ configure evaluation dataset in *eval.sh*, kb13 or turk
 source eval.sh
 ```
 ## Main Result
-![image](./result.png)
+<img src="https://github.com/Smallqqqq/InfeRE/blob/main/result.png" width="700"><br/>
