@@ -36,4 +36,4 @@ change dataset in *eval.sh*, kb13 or turk
 source eval.sh
 ```
 ## Main Result
-![image](https://github.com/Smallqqqq/InfeRE/blob/main/result.png)
+![image](./result.png)
