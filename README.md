@@ -1,7 +1,9 @@
-# Step-by-step Regex Generation via Chain of Inference
-This is implemantation of the paper **Step-by-step Regex Generation via Chain of Inference**
+# InfeRE: Step-by-Step Regex Generation via Chain of Inference
+This is the implementation of the paper **InfeRE: Step-by-Step Regex Generation via Chain of Inference**
 ## Summary
-Automatically generating regular expressions from natural language description (NL2RE) has been an emerging research area. Prior works treat regex as a linear sequence of tokens and generate the final expressions autoregressively in a single pass. They did not take into account the step-by-step internal text-matching processes behind the final results. This significantly hinders the efficacy and interpretability of regex generation by neural language models. In this paper, we propose a new paradigm called InfeRE, which decomposes the generation of regexes into chains of step-by-step inference. To enhance the robustness, we introduce a self-consistency decoding mechanism that ensembles multiple outputs sampled from different models. Experimental studies on two public benchmarks demonstrate that InfeRE remarkably outperforms previous methods and achieves state-of-the-art performance.
+Automatically generating regular expressions (abbrev. regexes) from natural language description (NL2RE) has been an emerging research area. Prior studies treat regex as a linear sequence of tokens and generate the final expressions autoregressively in a single pass. They did not take into account
+the step-by-step internal text-matching processes behind the final results. This significantly hinders the efficacy and interpretability of regex generation by neural language models. In this paper, we propose a new paradigm called InfeRE, which decomposes the generation of regexes into chains of step-by-step inference. To enhance the robustness, we introduce a self-consistency decoding mechanism that ensembles multiple outputs sampled from different models. We evaluate InfeRE on two
+publicly available datasets, NL-RX-Turk and KB13, and compare the results with state-of-the-art approaches and the popular tree-based generation approach TRANX. Experimental results show that InfeRE substantially outperforms previous baselines, yielding 16.3% and 14.7% improvement in DFA@5 accuracy on two datasets, respectively. Particularly, InfeRE outperforms the popular tree-based generation approach by 18.1% and 11.3% on both datasets, respectively, in terms of DFA@5 accuracy.
 
 ## Chains of Inference
 We convert plain regexes into chains of inference, each representing an inferred sub-regex that denotes a text-matching process. Then, we train a sequence-to-sequence model to generate chains of inference from natural language queries and revert them into regexes.
@@ -13,8 +15,7 @@ continuously as the traversal proceeds. We repeat this process until there is on
 
 
 ## Self-Consistency
-Since we formulate regex generation as a chain of inference for text matching, it is natural to suppose that there are multiple chains that lead to the same 199
-text matching. Moreover, if multiple chains reach the same matching, that means the generated chains are more convincing. In other words, multiple wrong chains are unlikely to reach the same answer. Therefore, we can sample a group of inference chains from the language model, revert them to plain regexes, and select the most consistent ones (i.e., chains of inference that lead to the same regexes) as the final results.
+Since we formulate regex generation as a chain of inference for text matching, it is natural to suppose that there are multiple chains that lead to the same text matching. Moreover, if multiple chains reach the same matching, that means the generated chains are more convincing. In other words, multiple wrong chains are unlikely to reach the same answer. Therefore, we can sample a group of inference chains from the language model, revert them to plain regexes, and select the most consistent ones (i.e., chains of inference that lead to the same regexes) as the final results.
 
 ![image](./consistency.png)
 
