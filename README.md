@@ -5,6 +5,12 @@ Automatically generating regular expressions (abbrev. regexes) from natural lang
 the step-by-step internal text-matching processes behind the final results. This significantly hinders the efficacy and interpretability of regex generation by neural language models. In this paper, we propose a new paradigm called InfeRE, which decomposes the generation of regexes into chains of step-by-step inference. To enhance the robustness, we introduce a self-consistency decoding mechanism that ensembles multiple outputs sampled from different models. We evaluate InfeRE on two
 publicly available datasets, NL-RX-Turk and KB13, and compare the results with state-of-the-art approaches and the popular tree-based generation approach TRANX. Experimental results show that InfeRE substantially outperforms previous baselines, yielding 16.3% and 14.7% improvement in DFA@5 accuracy on two datasets, respectively. Particularly, InfeRE outperforms the popular tree-based generation approach by 18.1% and 11.3% on both datasets, respectively, in terms of DFA@5 accuracy.
 
+## Overview
+InfeRE involves three main steps. First, we decompose plain regexes into chains of inference, namely, step-by-step operations in the regexes. Second, we train a sequence-to-sequence model to generate the chains of inference. These chains of inference are assembled into plain regexes. Third, we design a self-consistency decoding mechanism that ensembles multiple inference chains.
+
+<img src="./Overview1.png" width="750"><br/>
+
+
 ## Chains of Inference
 We convert plain regexes into chains of inference, each representing an inferred sub-regex that denotes a text-matching process. Then, we train a sequence-to-sequence model to generate chains of inference from natural language queries and revert them into regexes.
 
@@ -41,5 +47,5 @@ source eval.sh
 ```
 ## Main Result
 
-<img src="./result.png" width="700"><br/>
+<img src="./MainResult.png" width="700"><br/>
 
