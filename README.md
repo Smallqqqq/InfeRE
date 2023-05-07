@@ -23,8 +23,8 @@ continuously as the traversal proceeds. We repeat this process until there is on
 ## Self-Consistency
 Since we formulate regex generation as a chain of inference for text matching, it is natural to suppose that there are multiple chains that lead to the same text matching. Moreover, if multiple chains reach the same matching, that means the generated chains are more convincing. In other words, multiple wrong chains are unlikely to reach the same answer. Therefore, we can sample a group of inference chains from the language model, revert them to plain regexes, and select the most consistent ones (i.e., chains of inference that lead to the same regexes) as the final results.
 
-![image](./consistency.png)
 
+<img src="./consistency.png" width="750"><br/>
 ## Data
 Train/valid/test data is under **./data**
 
